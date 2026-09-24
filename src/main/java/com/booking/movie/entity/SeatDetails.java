@@ -17,8 +17,8 @@ public class SeatDetails extends BaseEntity {
     @Column
     private Boolean enabled;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "venue_id", insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "venue_id", nullable = false)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private VenueDetails venueDetails;

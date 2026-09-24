@@ -47,11 +47,13 @@ class BookingServiceTests {
         ShowDetails show = new ShowDetails();
         show.setActive(true);
         when(shows.findById(2L)).thenReturn(Optional.of(show));
+        VenueDetails venue = new VenueDetails();
+        venue.setId(3L);
         List<SeatDetails> availableSeats = new ArrayList<>();
         for (long id : new long[]{10L, 11L}) {
             SeatDetails seat = new SeatDetails();
             seat.setId(id);
-            seat.setVenueId(3L);
+            seat.setVenueDetails(venue);
             seat.setEnabled(true);
             seat.setPrice(new BigDecimal("100.00"));
             seat.setLabel("A" + id);
